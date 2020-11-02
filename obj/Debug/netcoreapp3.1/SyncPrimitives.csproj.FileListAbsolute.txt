@@ -1,0 +1,13 @@
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\bin\Debug\netcoreapp3.1\SyncPrimitives.exe
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\bin\Debug\netcoreapp3.1\SyncPrimitives.deps.json
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\bin\Debug\netcoreapp3.1\SyncPrimitives.runtimeconfig.json
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\bin\Debug\netcoreapp3.1\SyncPrimitives.runtimeconfig.dev.json
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\bin\Debug\netcoreapp3.1\SyncPrimitives.dll
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\bin\Debug\netcoreapp3.1\SyncPrimitives.pdb
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.csprojAssemblyReference.cache
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.AssemblyInfoInputs.cache
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.AssemblyInfo.cs
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.csproj.CoreCompileInputs.cache
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.dll
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.pdb
+C:\Users\OLGA\Desktop\POIT\5 sem\СПП\Лабы\SyncPrimitives\obj\Debug\netcoreapp3.1\SyncPrimitives.genruntimeconfig.cache
