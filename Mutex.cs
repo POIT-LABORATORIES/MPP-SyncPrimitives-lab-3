@@ -1,43 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace SyncPrimitives
 {
-    public class CustomMutex
+    class Mutex
     {
-        private Semaphore _semaphore;
-        public CustomMutex()
-        {
-            _semaphore = new Semaphore(1, 1);
-        }
+        private int threadID = 0;
 
         public void Lock()
         {
-            _semaphore.WaitOne();
+            if (Interlocked.CompareExchange(ref threadID, Thread.CurrentThread.ManagedThreadId, 0) != 0)
+            {
+                Thread.Sleep(50);
+            }
         }
 
         public void Unlock()
         {
-            try
-            {
-                _semaphore.Release();
-            }
-            catch (SemaphoreFullException e)
-            {
-                Console.WriteLine("An exception was thrown: ", e.Message);
-            }
-        }
-
-        public void WriteToConsole()
-        {
-            Console.WriteLine(_semaphore.ToString());
-        }
-
-        public void Dispose() 
-        {
-            _semaphore.Close(); 
+            if (Interlocked.CompareExchange(ref threadID, 0, Thread.CurrentThread.ManagedThreadId) != Thread.CurrentThread.ManagedThreadId)
+                throw new Exception($"Error: the thread {Thread.CurrentThread.ManagedThreadId} cannot release mutex due to its lack");
         }
     }
 }

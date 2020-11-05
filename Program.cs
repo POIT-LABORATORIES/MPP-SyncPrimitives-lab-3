@@ -7,23 +7,24 @@ namespace SyncPrimitives
     class Program
     {
         public static int res = 0;
-        public static CustomMutex mut = new CustomMutex();
+        public static Mutex mut = new Mutex();
         static void Main(string[] args)
         {
-            int num1 = 10;
-            int num2 = 10;
-            Interlocked.CompareExchange(ref num1, 15, num2);
-            Console.WriteLine(num1);
-
             var task1 = Task.Run(() => IncRes(5));
             var task2 = Task.Run(() => DecRes(5));
+            try
+            {
+                var task3 = Task.Run(() => WrongThread(5));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Thread.Sleep(1000);
-            mut.Dispose();
         }
 
         static void IncRes(int num)
         {
-            Thread.Sleep(1000);
             mut.Lock();
             Console.WriteLine("Increment");
             for (int i = 0; i < num; i++)
@@ -37,7 +38,7 @@ namespace SyncPrimitives
 
         static void DecRes(int num)
         {
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
             mut.Lock();
             Console.WriteLine("Decrement");
             for (int i = 0; i < num; i++)
@@ -46,6 +47,23 @@ namespace SyncPrimitives
                 Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}: res = {res}");
             }
             mut.Unlock();
+            return;
+        }
+        static void WrongThread(int num)
+        {
+            try
+            {
+                mut.Unlock();
+                for (int i = 0; i < num; i++)
+                {
+                    Interlocked.Decrement(ref res);
+                    Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId}: res = {res}");
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return;
         }
     }
